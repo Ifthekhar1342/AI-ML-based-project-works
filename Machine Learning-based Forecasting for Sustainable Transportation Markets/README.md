@@ -7,4 +7,4 @@ This project focuses on forecasting the sales of electric vehicles from 2025 to 
 
  ## Dataset
  <p align="justify">
- The dataset contains sales data spanning the years from 2010 to 2035 including histprical sales records (2010-2024) and forward looking projections (2025-2035). It covers   
+ The dataset contains sales data spanning the years from 2010 to 2035 including histprical sales records (2010-2024) and forward looking projections (2025-2035). It covers about six major regions including Asia, Euorpe, and North America.    
