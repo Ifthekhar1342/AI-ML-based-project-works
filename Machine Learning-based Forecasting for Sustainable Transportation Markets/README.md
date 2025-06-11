@@ -11,4 +11,10 @@ The dataset contains sales data spanning the years from 2010 to 2035 including h
 </p>
 
 ## Project Workflow
+### Step 1: Data Exploration
+<p align="justify">
+Analyzed the features to identify the detailed trend analysis that could help with predictive modeling for the future of electric mobility across different markets.
+</p>
+
+### Step 2: Feature Engineering
 <p align="justify">
