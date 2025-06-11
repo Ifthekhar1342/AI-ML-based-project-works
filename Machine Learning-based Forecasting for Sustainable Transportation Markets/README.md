@@ -18,4 +18,5 @@ Analyzed the features to identify the detailed trend analysis that could help wi
 
 ### Step 2: Feature Engineering
 <p align="justify">
-Provide a clear view of annual market perfromance for each region using aggregated yearly unit sales, sales growth trajectory over time, and acceleration or deceleration patterns of market growth.
+Provide a clear view of annual market performance for each region using aggregated yearly unit sales, sales growth trajectory over time, and acceleration or deceleration patterns of market growth.
+</p>
