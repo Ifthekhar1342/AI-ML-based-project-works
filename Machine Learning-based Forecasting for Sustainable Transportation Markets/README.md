@@ -48,7 +48,13 @@ Line plots, bar charts, and a heatmap were used to visualize global and regional
 Each model was trained and evaluated using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared (R^2), and training time. The results were complied in a comparison table to identify the best performing algorithm.
 
 ![results](https://github.com/user-attachments/assets/57c3486a-454c-401a-9519-65d3da836269)
+*  Result: A linear regression model performed well to forecast sales from 2025 to 2035 along with visualizing both historical and predicted trends for clear comparison.
 </p>
 <p align="justify">
   
-*  
+### Step 5: Validation Loss Comparison
+To evaluate the performance of different deep learning techniques, a validation loss comparison was conducted over 200 training epochs for three models:
+
+*  The Dense Neural Network model indicated an efficient learning of overall patterns in the data and reached low validation loss fast.
+*  The GRU model initially performed slightly better than the LSTM and nearly matched Dense Neural Network model performance.
+*  The LSTM model showed consistent improvement over time and had slightly higher validation loss than the others.
