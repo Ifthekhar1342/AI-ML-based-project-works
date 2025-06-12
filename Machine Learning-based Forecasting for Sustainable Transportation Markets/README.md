@@ -2,7 +2,7 @@
 
 ## Introduction
 <p align="justify">
-This project focuses on forecasting the sales of electric vehicles from 2025 to 2035 using machine learning and deep learning techniques. In recent years, a large growth in the automotive industry has brought a great challenge to plan the appropriate supply of necessary materials. The goal of this project is to provide data-driven decisions into the sustainable transportation markets as well as the manufacturing and policy development across different geographic regions.
+This project focuses on forecasting the sales of electric vehicles from 2025 to 2035 using machine learning and deep learning techniques. In recent years, a large growth in the automotive industry has brought a great challenge to plan the appropriate supply of necessary materials. The goal of this project is to provide data-driven decisions into the sustainable transportation markets as well as manufacturing and policy development across different geographic regions.
  </p>
 
 ## Dataset
@@ -29,7 +29,7 @@ Line plots, bar charts, and a heatmap are used to visualize global and regional 
 ### Step 4: Model Training and Evaluation
 <p align="justify">
 
-*  Data preprocessing: This dataset is filtered to include only relevent annual sales data. Total yearly sales are aggregated as well as features (x) and targets (y) are defined accordingly. The data is then split into training and testing sets using an 80/20 ratio to evaluate model performance effectively.
+*  Data preprocessing: This dataset is filtered to include only relevant annual sales data. Total yearly sales are aggregated as well as features (x) and targets (y) are defined accordingly. The data is then split into training and testing sets using an 80/20 ratio to evaluate model performance effectively.
 </p>
   
 *   Algorithms used: To predict future sales trends based on historical data, the following machine learning regression algorithms are employed:
@@ -45,7 +45,7 @@ Line plots, bar charts, and a heatmap are used to visualize global and regional 
     10. #### K-Nearest Neighbors Regressor
     11. #### Multi-Layer Perception Regressor
     
-Each model is trained and evaluated using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared (R^2), and training time. The results are complied in a comparison table to identify the best performing algorithm.
+Each model is trained and evaluated using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared (R^2), and training time. The results are compiled in a comparison table to identify the best-performing algorithm.
 
 ![results](https://github.com/user-attachments/assets/57c3486a-454c-401a-9519-65d3da836269)
 *  Result: A linear regression model performs well to forecast sales from 2025 to 2035 along with visualizing both historical and predicted trends for clear comparison.
@@ -56,14 +56,14 @@ Each model is trained and evaluated using metrics like Mean Squared Error (MSE),
 To evaluate the performance of different deep learning techniques, a validation loss comparison is conducted over 200 training epochs for three models:
 
 *  The Dense Neural Network model indicates an efficient learning of overall patterns in the data and reaches low validation loss fast.
-*  The GRU model initially performs slightly better than the LSTM and nearly matches Dense Neural Network model performance.
-*  The LSTM model shows consistent improvement over time and has slightly higher validation loss than the others.
+*  The GRU model initially performs slightly better than the LSTM and nearly matches the performance of the Dense Neural Network.
+*  The LSTM model shows consistent improvement over time and has a slightly higher validation loss than the others.
 
 ### Step 6: Comparison Between Actual and Predicted Values
-Based on the visual comparison, the Decision Tree model is the best model which gives the most actual predictions. On the other hand, Support Vector Machine (SVM) model performs the worst due to its flat and inaccurate predictions.
+Based on the visual comparison, the Decision Tree model is the best model which gives the most actual predictions. On the other hand, the Support Vector Machine (SVM) model performs the worst due to its flat and inaccurate predictions.
 
 ## Conclusion
-This project successfully explores and forecasts future trends in global sales using both machine learning and deep learning models. Identifying key patterns in historical data and generating accurate predictions for the 2025-2035 period through data preprocessing, visualization, and model evaluation can support strategic planning in technology development, infrasturcture investment, and sustainable mobility transitions.
+This project successfully explores and forecasts future trends in global sales using both machine learning and deep learning models. Identifying key patterns in historical data and generating accurate predictions for the 2025-2035 period through data preprocessing, visualization, and model evaluation can support strategic planning in technology development, infrastructure investment, and sustainable mobility transitions.
 
 ## Future Work
 
