@@ -59,6 +59,8 @@ To evaluate the performance of different deep learning techniques, a validation 
 *  The GRU model initially performs slightly better than the LSTM and nearly matches the performance of the Dense Neural Network.
 *  The LSTM model shows consistent improvement over time and has a slightly higher validation loss than the others.
 
+![validation loss](https://github.com/user-attachments/assets/d4c846b5-530c-465b-939e-f70e289d5c99)
+
 ### Step 6: Comparison Between Actual and Predicted Values
 Based on the visual comparison, the Decision Tree model is the best model which gives the most actual predictions. On the other hand, the Support Vector Machine (SVM) model performs the worst due to its flat and inaccurate predictions.
 
