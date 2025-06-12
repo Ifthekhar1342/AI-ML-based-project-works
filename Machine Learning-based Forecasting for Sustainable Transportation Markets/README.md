@@ -23,16 +23,16 @@ Provide a clear view of annual market performance for each region using aggregat
 
 ### Step 3: Data Visualization
 <p align="justify">
-Line plots, bar charts, and a heatmap were used to visualize global and regional sales trends, powertrain-wise growth, top-selling regions, and yearly distribution patterns.
+Line plots, bar charts, and a heatmap are used to visualize global and regional sales trends, powertrain-wise growth, top-selling regions, and yearly distribution patterns.
 </p>
 
 ### Step 4: Model Training and Evaluation
 <p align="justify">
 
-*  Data preprocessing: This dataset was filtered to include only relevent annual sales data. Total yearly sales were aggregated as well as features (x) and targets (y) were defined accordingly. The data was then split into training and testing sets using an 80/20 ratio to evaluate model performance effectively.
+*  Data preprocessing: This dataset is filtered to include only relevent annual sales data. Total yearly sales are aggregated as well as features (x) and targets (y) are defined accordingly. The data is then split into training and testing sets using an 80/20 ratio to evaluate model performance effectively.
 </p>
   
-*   Algorithms used: To predict future sales trends based on historical data, the following machine learning regression algorithms were employed:
+*   Algorithms used: To predict future sales trends based on historical data, the following machine learning regression algorithms are employed:
     1. #### Linear Regression
     2. #### Ridge Regression
     3. #### Lasso Regression
@@ -45,16 +45,29 @@ Line plots, bar charts, and a heatmap were used to visualize global and regional
     10. #### K-Nearest Neighbors Regressor
     11. #### Multi-Layer Perception Regressor
     
-Each model was trained and evaluated using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared (R^2), and training time. The results were complied in a comparison table to identify the best performing algorithm.
+Each model is trained and evaluated using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared (R^2), and training time. The results are complied in a comparison table to identify the best performing algorithm.
 
 ![results](https://github.com/user-attachments/assets/57c3486a-454c-401a-9519-65d3da836269)
-*  Result: A linear regression model performed well to forecast sales from 2025 to 2035 along with visualizing both historical and predicted trends for clear comparison.
+*  Result: A linear regression model performs well to forecast sales from 2025 to 2035 along with visualizing both historical and predicted trends for clear comparison.
 </p>
 <p align="justify">
   
 ### Step 5: Validation Loss Comparison
-To evaluate the performance of different deep learning techniques, a validation loss comparison was conducted over 200 training epochs for three models:
+To evaluate the performance of different deep learning techniques, a validation loss comparison is conducted over 200 training epochs for three models:
 
-*  The Dense Neural Network model indicated an efficient learning of overall patterns in the data and reached low validation loss fast.
-*  The GRU model initially performed slightly better than the LSTM and nearly matched Dense Neural Network model performance.
-*  The LSTM model showed consistent improvement over time and had slightly higher validation loss than the others.
+*  The Dense Neural Network model indicates an efficient learning of overall patterns in the data and reaches low validation loss fast.
+*  The GRU model initially performs slightly better than the LSTM and nearly matches Dense Neural Network model performance.
+*  The LSTM model shows consistent improvement over time and has slightly higher validation loss than the others.
+
+### Step 6: Comparison Between Actual and Predicted Values
+Based on the visual comparison, the Decision Tree model is the best model which gives the most actual predictions. On the other hand, Support Vector Machine (SVM) model performs the worst due to its flat and inaccurate predictions.
+
+## Conclusion
+This project successfully explores and forecasts future trends in global sales using both machine learning and deep learning models. Identifying key patterns in historical data and generating accurate predictions for the 2025-2035 period through data preprocessing, visualization, and model evaluation can support strategic planning in technology development, infrasturcture investment, and sustainable mobility transitions.
+
+## Future Work
+
+*  Experiment with hyperparameter tuning and ensemble methods to further enhance model performance.
+*  Explore transformer-based models for improved time-series forecasting.
+*  Build an interactive dashboard through a web app for real-time forecasting and visualization.
+</p>
