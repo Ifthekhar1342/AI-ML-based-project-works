@@ -44,6 +44,9 @@ Line plots, bar charts, and a heatmap were used to visualize global and regional
     9. #### Support Vector Regressor
     10. #### K-Nearest Neighbors Regressor
     11. #### Multi-Layer Perception Regressor
+    
+Each model was trained and evaluated using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared (R^2), and training time. The results were complied in a comparison table to identify the best performing algorithm.
+
 </p>
 
 *  
