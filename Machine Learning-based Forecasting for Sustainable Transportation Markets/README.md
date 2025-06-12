@@ -28,3 +28,22 @@ Line plots, bar charts, and a heatmap were used to visualize global and regional
 
 ### Step 4: Model Training and Evaluation
 <p align="justify">
+
+*  Data preprocessing: This dataset was filtered to include only relevent annual sales data. Total yearly sales were aggregated as well as features (x) and targets (y) were defined accordingly. The data was then split into training and testing sets using an 80/20 ratio to evaluate model performance effectively.
+</p>
+  
+*   Algorithms used: To predict future sales trends based on historical data, the following machine learning regression algorithms were employed:
+    1. #### Linear Regression
+    2. #### Ridge Regression
+    3. #### Lasso Regression
+    4. #### ElasticNet Regression
+    5. #### Decision Tree Regressor
+    6. #### Random Forest Regressor
+    7. #### Gradient Boosting Regressor
+    8. #### AdaBoost Regressor
+    9. #### Support Vector Regressor
+    10. #### K-Nearest Neighbors Regressor
+    11. #### Multi-Layer Perception Regressor
+</p>
+
+*  
