@@ -20,3 +20,11 @@ Analyzed the features to identify the detailed trend analysis that could help wi
 <p align="justify">
 Provide a clear view of annual market performance for each region using aggregated yearly unit sales, sales growth trajectory over time, and acceleration or deceleration patterns of market growth.
 </p>
+
+### Step 3: Data Visualization
+<p align="justify">
+Line plots, bar charts, and a heatmap were used to visualize global and regional sales trends, powertrain-wise growth, top-selling regions, and yearly distribution patterns.
+</p>
+
+### Step 4: Model Training and Evaluation
+<p align="justify">
