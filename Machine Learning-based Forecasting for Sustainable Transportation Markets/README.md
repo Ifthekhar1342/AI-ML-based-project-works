@@ -47,6 +47,8 @@ Line plots, bar charts, and a heatmap were used to visualize global and regional
     
 Each model was trained and evaluated using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared (R^2), and training time. The results were complied in a comparison table to identify the best performing algorithm.
 
+![results](https://github.com/user-attachments/assets/57c3486a-454c-401a-9519-65d3da836269)
 </p>
-
+<p align="justify">
+  
 *  
