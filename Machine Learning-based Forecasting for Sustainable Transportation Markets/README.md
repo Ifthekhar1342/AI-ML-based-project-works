@@ -63,13 +63,18 @@ To evaluate the performance of different deep learning techniques, a validation 
 
 ### Step 6: Comparison Between Actual and Predicted Values
 Based on the visual comparison, the Decision Tree model is the best model which gives the most actual predictions. On the other hand, the Support Vector Machine (SVM) model performs the worst due to its flat and inaccurate predictions.
+</p>
 
+<p align="justify">
+ 
 ## Conclusion
 This project successfully explores and forecasts future trends in global sales using both machine learning and deep learning models. Identifying key patterns in historical data and generating accurate predictions for the 2025-2035 period through data preprocessing, visualization, and model evaluation can support strategic planning in technology development, infrastructure investment, and sustainable mobility transitions.
+
+</p>
 
 ## Future Work
 
 *  Experiment with hyperparameter tuning and ensemble methods to further enhance model performance.
 *  Explore transformer-based models for improved time-series forecasting.
 *  Build an interactive dashboard through a web app for real-time forecasting and visualization.
-</p>
+ 
