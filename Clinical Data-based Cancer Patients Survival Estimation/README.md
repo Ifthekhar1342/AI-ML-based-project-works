@@ -10,3 +10,5 @@ The datasets used in this project reflects actual cancer epidomology trends asso
 The goal of this project is to assist in early prognosis, identify critical risk factors, and support data-driven decisions.
 ## Project Flowchart
 ![Capture1](https://github.com/user-attachments/assets/347cab9e-9b91-4cb5-9d60-caaefe84a1e1)
+## Project Workflow
+### Step 01: 
