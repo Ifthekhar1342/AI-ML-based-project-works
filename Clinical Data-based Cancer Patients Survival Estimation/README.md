@@ -16,7 +16,16 @@ The goal of this project is to assist in early prognosis, identify critical risk
   
 ## Project Workflow
 ### Step 01: Data Exploration
+<p align="justify">
 Basic data cleaning and formatting are done by removing missing values and encoding categorical features. Explored feature distributions, correlations, and survival rates by cancer stage and tumor type to understand key patterns in the data.
+</p>
+  
 ### Step 02: Feature Engineering
+<p align="justify">
 Feature engineering is done to improve the dataset for prediction. A new column is created to show whether a patient had a surgery. Missing values in AlcoholUse, GeneticMutation, and Comorbidities are filled with "Unknown" or "None". MonthsSinceDiagonosis is calculated to show how much time has passed since the patient was diagonised. Unnecessary data columns are dropped to keep the data clean and focused.
+</p>
+
+### Step 03: Machine Learning Model Implementation
+<p align="justify">
+SMOTE (Synthetic Minority Oversampling Technique) is applied to address class imbalance in the survival data and ensure balanced representation of outcome. Three classification models: Decision Tree, Random forest, and Logistic Regression are implemented using default parameters. Each model is evaluated using 5-fold cross validation to estimate their accuracy.
 </p>
