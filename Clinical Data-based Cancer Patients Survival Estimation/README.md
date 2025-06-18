@@ -10,5 +10,13 @@ The datasets used in this project reflects actual cancer epidomology trends asso
 The goal of this project is to assist in early prognosis, identify critical risk factors, and support data-driven decisions.
 ## Project Flowchart
 ![Capture1](https://github.com/user-attachments/assets/347cab9e-9b91-4cb5-9d60-caaefe84a1e1)
+</p>
+
+<p align="justify">
+  
 ## Project Workflow
-### Step 01: 
+### Step 01: Data Exploration
+Basic data cleaning and formatting are done by removing missing values and encoding categorical features. Explored feature distributions, correlations, and survival rates by cancer stage and tumor type to understand key patterns in the data.
+### Step 02: Feature Engineering
+Feature engineering is done to improve the dataset for prediction. A new column is created to show whether a patient had a surgery. Missing values in AlcoholUse, GeneticMutation, and Comorbidities are filled with "Unknown" or "None". MonthsSinceDiagonosis is calculated to show how much time has passed since the patient was diagonised. Unnecessary data columns are dropped to keep the data clean and focused.
+</p>
