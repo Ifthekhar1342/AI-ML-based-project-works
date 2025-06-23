@@ -37,6 +37,9 @@ RandomizedSearchCV is used to improve the performance of Decision Tree, Random f
 
 ### Step 05: Model Evaluation
 <p align="justify">
-The best model is evaluated on the test set and achieved an accuracy 92.1% which indicates strong overall predictive ability. The confusion matrix shows very false positive and false negatives along with balanced performance. This model had high precision and recall for both 'Alive' and 'Deceased' classes according to consistent and reliable classification across both survival outcomes.
+The best model is evaluated on the test set and achieved an accuracy 92.1% which indicates strong overall predictive ability. The confusion matrix shows very false positive and false negatives along with balanced performance. This model had high precision and recall with an F1 score of 92% for both 'Alive' and 'Deceased' classes according to consistent and reliable classification across both survival outcomes.
 </p>
 
+## Conclusion
+<p align="justify">
+The project work demonstrated the use of machine learning algorithms to predict cancer patient survival based on clinical, treatment, and lifestyle data. 
