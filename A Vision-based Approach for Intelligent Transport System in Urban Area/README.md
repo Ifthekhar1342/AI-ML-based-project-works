@@ -5,4 +5,4 @@ The adoption of AI-based applications is rapidly growing in the modern world acr
 
 # Dataset
 <p align="justify">
-The dataset used in this project is specifically curated for real-time vehicle detection on Bangladeshi roads. It includes annotated images featuring local road scenarios for region-specific traffic analysis and automation. The dataset is available [here](https://drive.google.com/drive/u/0/folders/1Oenec-8J2A5QJKMSCWkW_a3keiLYfkkL)
+The dataset used in this project is specifically curated for real-time vehicle detection on Bangladeshi roads. It includes annotated images featuring local road scenarios for region-specific traffic analysis and automation. The dataset is available [here](https://drive.google.com/drive/u/0/folders/1Oenec-8J2A5QJKMSCWkW_a3keiLYfkkL).
