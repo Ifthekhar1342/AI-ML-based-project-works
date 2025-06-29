@@ -5,4 +5,10 @@ The adoption of AI-based applications is rapidly growing in the modern world acr
 
 # Dataset
 <p align="justify">
-The dataset used in this project is specifically curated for real-time vehicle detection on Bangladeshi roads. It includes annotated images featuring local road scenarios for region-specific traffic analysis and automation. The dataset is available <a href="https://drive.google.com/drive/u/0/folders/1Oenec-8J2A5QJKMSCWkW_a3keiLYfkkL">here</a>
+The dataset used in this project is specifically curated for real-time vehicle detection on Bangladeshi roads. It includes annotated images featuring local road scenarios for region-specific traffic analysis and automation. The dataset is available <a href="https://drive.google.com/drive/u/0/folders/1Oenec-8J2A5QJKMSCWkW_a3keiLYfkkL">here</a>.
+</p>
+
+# Objective
+<p align="justify">
+This project aim to support the development of smart taffic management systems and autonomous driving systems in the heavy congestion traffic environments.
+</p>
