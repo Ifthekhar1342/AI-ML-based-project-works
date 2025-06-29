@@ -12,3 +12,11 @@ The dataset used in this project is specifically curated for real-time vehicle d
 <p align="justify">
 This project aim to support the development of smart taffic management systems and autonomous driving systems in the heavy congestion traffic environments.
 </p>
+
+# Project Woekflow
+
+## Data pre-processing
+<p align="justify">
+Implementing bounding boxes on the training images to visualize object detection. It helps to check image label correctness and understand the distribution of object classes. 
+</p>
+
