@@ -14,6 +14,8 @@ This project aim to support the development of smart taffic management systems a
 </p>
 
 # Project Woekflow
+The code of this project [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1L8Fqe_vFLG_jhxtyj5xp6idBLQoGfuG6#scrollTo=0TKnpAAuzMKg)
+
 
 ## Data pre-processing
 <p align="justify">
@@ -21,4 +23,14 @@ Implementing bounding boxes on the training images to visualize object detection
 </p>
 
 ## Model Implementation and Evaluation
+<p align="justify">
+This project focuses on multi-class vehicle classification using YOLOv8 modeltrained on annotated vehicle images. The model is designed to classify images into one of several vehicle categories including cars, buses, trucks, motorbikes, bicycles etc. Several performance metrics were generated :
+</p>
+
+-  ### Precision-Recall Curve
+<p align="justify">
+The thick blue line represents the overall performance across all classes along with a mean avarage precision of 0.422. 'car' and 'three wheelers - CNG' have high AP (Avarage Precision) scores, while 'policecar' and 'scooter' have low AP (Avarage Precision) scores.
+</p>
+
+-  ### Precision-Confidence Curve
 <p align="justify">
