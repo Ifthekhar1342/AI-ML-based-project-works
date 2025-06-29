@@ -20,3 +20,5 @@ This project aim to support the development of smart taffic management systems a
 Implementing bounding boxes on the training images to visualize object detection. It helps to check image label correctness and understand the distribution of object classes. 
 </p>
 
+## Model Implementation and Evaluation
+<p align="justify">
