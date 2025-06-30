@@ -51,3 +51,11 @@ This curve shows how recall differs by adjusting the confidence threshold. Highe
 <p align="justify">
 This model shows strong performance in high sample classes along with some confusion between similar categories (e.g. minivan, van).
 </p>
+
+-  ### Training Metrics and Loss Visualization
+<p align="justify">
+A grid of line plots to visualize track model convergence by observing loss reduction over epochs.
+</p>
+
+-  ### Evaluation & object detection
+<p align="justify">
