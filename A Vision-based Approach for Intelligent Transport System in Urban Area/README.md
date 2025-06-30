@@ -34,3 +34,20 @@ The thick blue line represents the overall performance across all classes along 
 
 -  ### Precision-Confidence Curve
 <p align="justify">
+This plot helps to choose an optimal confidence threshold associated with the balanced precision and recall to make the model more selective.
+</p>
+
+-  ### F1-Confidence Curve
+<p align="justify">
+The overall best F1 is approximately 0.38 at a threshold of .357. 'Car' and 'Bus' classes achieve higher F1 scores along with the optimal confidence threshold.
+</p>
+
+-  ### Recall-Confidence Curve
+<p align="justify">
+This curve shows how recall differs by adjusting the confidence threshold. Higher recall is seen at low confidence threshold (e.g. car, bus).
+</p>
+
+-  ### Confusion Matrix
+<p align="justify">
+This model shows strong performance in high sample classes along with some confusion between similar categories (e.g. minivan, van).
+</p>
