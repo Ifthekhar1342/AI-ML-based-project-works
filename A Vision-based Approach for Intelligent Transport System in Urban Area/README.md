@@ -59,3 +59,19 @@ A grid of line plots to visualize track model convergence by observing loss redu
 
 -  ### Evaluation & object detection
 <p align="justify">
+The trained object detection YOLOv8 model demonstrates evaluation on the validation image set by specifying the trained model checkpoint and the validation image directory. Each selected image is displayed with the detected objects by accessing the directory containing the predicted results and randomly selects 30 images for visualization. 
+</p>
+
+## Conclusion
+<p align="justify">
+In this project, an object detection model shows promising performance on a diverse dataset to detect and classify multiple object categories accurately. The model is capable of identifying most target objects with reasonable precision and recall. Though the evaluation results on both quantitive metrics and qualitative visualizations indicate that the model performs well on several classes, there are remain opportunities for improvement. 
+</p>
+
+## Future Work
+<p align="justify">
+
+-  Explore real-time deployment options and optimize the model for mobile platforms.
+-  Integrating post-processing steps such as Non-Maximum Suppression (NMS) optimization for better handling or overlapping detections.
+-  Implement transfer learning approaches and ensemble methods to further boost performance.
+
+</p>
