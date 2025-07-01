@@ -13,7 +13,7 @@ The dataset used in this project is specifically curated for real-time vehicle d
 This project aim to support the development of smart taffic management systems and autonomous driving systems in the heavy congestion traffic environments.
 </p>
 
-# Project Woekflow
+# Project Workflow
 The code of this project [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1L8Fqe_vFLG_jhxtyj5xp6idBLQoGfuG6#scrollTo=0TKnpAAuzMKg)
 
 
