@@ -1,6 +1,6 @@
 # Introduction
 <p align="justify">
-The adoption of AI-based applications is rapidly growing in the modern world across various sectors including intelligent traffic systems and autonomous vehicles. These applications are heavily relied on real-time object detection to function safely and efficiently. I developed a project to identify vehicles by using computer vision techniques from road scene images on the roads of Bangladesh. This project not only focuses on the application of state-of-the-art object detection methods but also contributes toward the development of region-specific autonomous vehicle and traffic monitoring systems.
+The adoption of AI-based applications is rapidly growing in the modern world across various sectors including intelligent traffic systems and autonomous vehicles. These applications rely heavily on real-time object detection to function safely and efficiently. I developed a project to identify vehicles by using computer vision techniques from road scene images on the roads of Bangladesh. This project not only focuses on the application of state-of-the-art object detection methods but also contributes toward the development of region-specific autonomous vehicles and traffic monitoring systems.
 </p>
 
 # Dataset
@@ -10,7 +10,7 @@ The dataset used in this project is specifically curated for real-time vehicle d
 
 # Objective
 <p align="justify">
-This project aim to support the development of smart taffic management systems and autonomous driving systems in the heavy congestion traffic environments.
+This project aims to support the development of smart traffic management systems and autonomous driving systems in heavy-congestion traffic environments.
 </p>
 
 # Project Workflow
@@ -24,12 +24,12 @@ Implementing bounding boxes on the training images to visualize object detection
 
 ## Model Implementation and Evaluation
 <p align="justify">
-This project focuses on multi-class vehicle classification using YOLOv8 modeltrained on annotated vehicle images. The model is designed to classify images into one of several vehicle categories including cars, buses, trucks, motorbikes, bicycles etc. Several performance metrics were generated :
+This project focuses on multi-class vehicle classification using the YOLOv8 model trained on annotated vehicle images. The model is designed to classify images into one of several vehicle categories, including cars, buses, trucks, motorbikes, bicycles etc. Several performance metrics were generated :
 </p>
 
 -  ### Precision-Recall Curve
 <p align="justify">
-The thick blue line represents the overall performance across all classes along with a mean avarage precision of 0.422. 'car' and 'three wheelers - CNG' have high AP (Avarage Precision) scores, while 'policecar' and 'scooter' have low AP (Avarage Precision) scores.
+The thick blue line represents the overall performance across all classes, along with a mean average precision of 0.422. 'car' and 'three wheelers - CNG' have high AP (Average Precision) scores, while 'policecar' and 'scooter' have low AP (Average Precision) scores.
 </p>
 
 -  ### Precision-Confidence Curve
@@ -44,7 +44,7 @@ The overall best F1 is approximately 0.38 at a threshold of .357. 'Car' and 'Bus
 
 -  ### Recall-Confidence Curve
 <p align="justify">
-This curve shows how recall differs by adjusting the confidence threshold. Higher recall is seen at low confidence threshold (e.g. car, bus).
+This curve shows how recall differs by adjusting the confidence threshold. Higher recall is seen at a low confidence threshold (e.g. car, bus).
 </p>
 
 -  ### Confusion Matrix
@@ -64,7 +64,7 @@ The trained object detection YOLOv8 model demonstrates evaluation on the validat
 
 ## Conclusion
 <p align="justify">
-In this project, an object detection model shows promising performance on a diverse dataset to detect and classify multiple object categories accurately. The model is capable of identifying most target objects with reasonable precision and recall. Though the evaluation results on both quantitive metrics and qualitative visualizations indicate that the model performs well on several classes, there are remain opportunities for improvement. 
+In this project, an object detection model shows promising performance on a diverse dataset to detect and classify multiple object categories accurately. The model is capable of identifying most target objects with reasonable precision and recall. Though the evaluation results on both quantitative metrics and qualitative visualizations indicate that the model performs well on several classes, there remain opportunities for improvement. 
 </p>
 
 ## Future Work
