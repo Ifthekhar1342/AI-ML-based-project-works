@@ -1,1 +1,277 @@
+1. System & Software installation (commands)
+Run these on Ubuntu 20.04 VM (after installing VirtualBox + Ubuntu). Use sudo when needed.
+1) Update system
+sudo apt update && sudo apt upgrade -y
+
+2) Install general dependencies
+sudo apt install -y build-essential git python3-pip python3-venv wget curl
+
+3) Install ROS Noetic (official)
+# setup sources
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt update
+sudo apt install -y ros-noetic-desktop-full
+ 
+# initialize rosdep
+sudo apt install -y python3-rosdep
+sudo rosdep init
+rosdep update
+ 
+# setup environment
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+# install catkin tools
+sudo apt install -y python3-catkin-tools 
+4) Install Gazebo (comes with desktop-full) and TurtleBot3 packages
+sudo apt install -y ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
+sudo apt install -y ros-noetic-turtlebot3 ros-noetic-turtlebot3-simulations
+# set turtlebot3 model in bashrc
+echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
+source ~/.bashrc
+
+5) RTAB-Map and Gmapping
+# RTAB-Map
+sudo apt install -y ros-noetic-rtabmap-ros
+# Gmapping
+sudo apt install -y ros-noetic-slam-gmapping
+ 
+6) Navigation stack
+sudo apt install -y ros-noetic-navigation ros-noetic-move-base ros-noetic-map-server
+ 
+7)  OpenCV & Python deps
+sudo apt install -y libopencv-dev python3-opencv
+python3 -m pip install --user numpy scipy matplotlib pandas
+  
+8) YOLOv5 environment (PyTorch and YOLOv5)
+# Clone YOLOv5 in workspace
+cd ~
+git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+python3 -m pip install --user -r requirements.txt
+ 
+2. Catkin workspace & placing packages
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+# clone your repo (or create packages)
+# For example:
+git clone <your_repo_url> ai_rescue_slam
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+
+Add the yolov5 Python path to ~/.bashrc if needed:
+echo "export PYTHONPATH=~/yolov5:$PYTHONPATH" >> ~/.bashrc
+source ~/.bashrc
+ 
+3. Key ROS launch files & configs
+Place these under launch/ and config/. They are minimal but complete for running simulation + SLAM + YOLO.
+3.1 launch Gazebo world
+<launch>
+  <!-- Launch Gazebo with the collapsed rescue world -->
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_world.launch">
+    <arg name="world_name" value="$(find ai_rescue_slam)/worlds/collapsed_rescue.world"/>
+  </include>
+</launch>
+
+Step 1
+Terminal 1 - World + Robot spawn
+ 
+echo 'export TURTLEBOT3_MODEL=waffle_pi' >> ~/.bashrcecho 'source /opt/ros/noetic/setup.bash' >> ~/.bashrcecho 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrcsource ~/.bashrc
+sudo apt update
+sudo apt install -y
+ros-noetic-rtabmap-ros
+ros-noetic-vision-opencv
+ros-noetic-image-transport
+ros-noetic-map-server
+
+roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch gui:=false
+
+Terminal 2 - Make debris model in Gazebo
+cat > ~/debris_box.sdf <<'EOF'
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="debris_box">
+    <pose>0 0 0.5 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="col"><geometry><box><size>0.8 0.6 0.9</size></box></geometry></collision>
+      <visual name="vis"><geometry><box><size>0.8 0.6 0.9</size></box></geometry></visual>
+    </link>
+  </model>
+</sdf>
+EOF
+rosrun gazebo_ros spawn_model -file ~/debris_box.sdf -sdf -model debris1 -x 1.5 -y 0.0 -z 0.0
+rosrun gazebo_ros spawn_model -file ~/debris_box.sdf -sdf -model debris2 -x 0.0 -y 1.8 -z 0.0
+rosrun gazebo_ros spawn_model -file ~/debris_box.sdf -sdf -model debris3 -x -1.2 -y -0.8 -z 0.0
+rosrun gazebo_ros spawn_model -file ~/debris_box.sdf -sdf -model debris4 -x 2.2 -y -1.0 -z 0.0
+rosrun gazebo_ros spawn_model -file ~/debris_box.sdf -sdf -model debris5 -x 3.6 -y -1.4 -z 0.0
+Step 2 - launch/rtabmap.launch
+Terminal 3 - RTAB-Map SLAM
+
+ <launch>
+  <arg name="use_sim_time" default="true"/>
+  <param name="use_sim_time" value="$(arg use_sim_time)"/>
+  <!-- RTAB-Map node -->
+  <node pkg="rtabmap_ros" type="rtabmap" name="rtabmap" output="screen">
+    <param name="frame_id" value="map"/>
+    <rosparam file="$(find ai_rescue_slam)/config/rtabmap_params.yaml" command="load"/>
+  </node>
+  <!-- rtabmapviz or rtabmap-realtime nodes can be launched optionally -->
+</launch> 
+roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=rtabmap
+Terminal 4 - launch/spawn_turtlebot.launch - spawn robot & sensors
+<launch>
+  <arg name="use_sim_time" default="true"/>
+  <param name="use_sim_time" value="$(arg use_sim_time)"/>
+  <!-- spawn turtlebot3 (from turtlebot3_gazebo) -->
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_spawn.launch"/>
+</launch> 
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch 
+4. launch/gmapping.launch
+<launch>
+  <param name="use_sim_time" value="true"/>
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <param name="base_frame" value="base_footprint" />
+    <!-- load params file -->
+    <rosparam file="$(find ai_rescue_slam)/config/gmapping_params.yaml" command="load" />
+  </node>
+  <node pkg="map_server" type="map_saver" name="map_saver" args="-f $(find ai_rescue_slam)/data/maps/gmapping_map" />
+</launch>
+
+5. launch/yolov5_ros.launch: This launches a simple Python node that reads camera images and runs YOLOv5 inference.
+<launch>
+  <arg name="camera_topic" default="/camera/rgb/image_raw"/>
+  <arg name="depth_topic" default="/camera/depth/image_raw"/>
+  <arg name="model_path" default="$(find ai_rescue_slam)/models/yolov5_rescue.pt"/>
+ 
+  <node pkg="yolov5_ros" type="yolov5_node.py" name="yolov5_node" output="screen" cwd="$(find yolov5_ros)">
+    <param name="camera_topic" value="$(arg camera_topic)"/>
+    <param name="depth_topic" value="$(arg depth_topic)"/>
+    <param name="model_path" value="$(arg model_path)"/>
+    <param name="score_threshold" value="0.4"/>
+  </node>
+</launch>
+ 
+5.1 YOLOv5 ROS node (Python) -  src/yolov5_ros/yolov5_node.py
+#!/usr/bin/env python3
+import rospy
+from sensor_msgs.msg import Image
+from std_msgs.msg import Header
+from cv_bridge import CvBridge
+import torch
+import numpy as np
+import message_filters
+from geometry_msgs.msg import PointStamped
+from vision_msgs.msg import Detection2DArray, Detection2D, ObjectHypothesis
+ 
+class YOLOv5RosNode:
+    def __init__(self):
+        rospy.init_node('yolov5_node', anonymous=True)
+        self.bridge = CvBridge()
+        self.model_path = rospy.get_param('~model_path')
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        rospy.loginfo(f"Loading YOLO model on {self.device} ...")
+        self.model = torch.hub.load('ultralytics/yolov5', 'custom', path=self.model_path, force_reload=False).to(self.device)
+        self.score_threshold = rospy.get_param('~score_threshold', 0.4)
+ 
+        camera_topic = rospy.get_param('~camera_topic', '/camera/rgb/image_raw')
+        depth_topic = rospy.get_param('~depth_topic', '/camera/depth/image_raw')
+ 
+        # synchronized subscriber to image + depth if needed for depth verification
+        self.sub_img = message_filters.Subscriber(camera_topic, Image)
+        self.sub_depth = message_filters.Subscriber(depth_topic, Image)
+        ts = message_filters.ApproximateTimeSynchronizer([self.sub_img, self.sub_depth], queue_size=5, slop=0.1)
+        ts.registerCallback(self.cb_image)
+ 
+        self.detections_pub = rospy.Publisher('/yolov5/detections', Detection2DArray, queue_size=5)
+        rospy.loginfo("YOLOv5 ROS node initialized.")
+ 
+    def cb_image(self, img_msg, depth_msg):
+        try:
+            cv_image = self.bridge.imgmsg_to_cv2(img_msg, "bgr8")
+        except Exception as e:
+            rospy.logerr("CV bridge error: %s", e)
+            return
+ 
+        results = self.model(cv_image)
+        dets = results.xyxy[0].cpu().numpy()  # x1,y1,x2,y2,conf,class
+ 
+        out_msg = Detection2DArray()
+        out_msg.header = img_msg.header
+ 
+        for d in dets:
+            x1, y1, x2, y2, conf, cls = d
+            if conf < self.score_threshold:
+                continue
+            det = Detection2D()
+            det.header = img_msg.header
+            # object hypothesis
+            hyp = ObjectHypothesis()
+            hyp.id = int(cls)
+            hyp.score = float(conf)
+            det.results = [hyp]
+            # bounding box center & size (approx)
+            bbox_center_x = (x1 + x2) / 2.0
+            bbox_center_y = (y1 + y2) / 2.0
+            # TODO: convert to image coordinates needed by detection msg (using Vision msg types)
+            # attach bounding box as additional info (or maintain separate custom msg)
+            out_msg.detections.append(det)
+        self.detections_pub.publish(out_msg)
+    def spin(self):
+        rospy.spin()
+if __name__ == '__main__':
+    node = YOLOv5RosNode()
+node.spin() 
+6. G-Mapping / RTAB-Map: Metrics Calculation
+a) Localization Error: Localization error is typically the difference between ground truth pose and estimated pose.import numpy as np
+# Example: 10 runs of localization error (in meters)
+gmap_errors = [0.13, 0.11, 0.12, 0.14, 0.12, 0.13, 0.11, 0.12, 0.13, 0.12]
+rtab_errors = [0.10, 0.09, 0.09, 0.10, 0.08, 0.09, 0.09, 0.10, 0.09, 0.09]
+# Mean and standard deviation
+gmap_mean = np.mean(gmap_errors)
+gmap_std = np.std(gmap_errors)
+rtab_mean = np.mean(rtab_errors)
+rtab_std = np.std(rtab_errors)
+print(f"GMapping Localization Error: {gmap_mean:.2f} ± {gmap_std:.2f} m")
+print(f"RTAB-Map Localization Error: {rtab_mean:.2f} ± {rtab_std:.2f} m")
+def compute_iou(map_estimated, map_groundtruth):
+    intersection = np.logical_and(map_estimated, map_groundtruth).sum()
+    union = np.logical_or(map_estimated, map_groundtruth).sum()
+    return intersection / union
+ 
+# Example: 10 runs
+gmap_iou = [0.85, 0.86, 0.87, 0.88, 0.86, 0.87, 0.85, 0.86, 0.87, 0.86]
+rtab_iou = [0.91, 0.92, 0.92, 0.93, 0.92, 0.91, 0.92, 0.92, 0.93, 0.92]
+print(f"GMapping Map Accuracy: {np.mean(gmap_iou)*100:.1f}%")
+print(f"RTAB-Map Map Accuracy: {np.mean(rtab_iou)*100:.1f}%")
+
+# Processing time
+gmap_times = [0.34, 0.36, 0.35, 0.33, 0.36, 0.35, 0.34, 0.35, 0.34, 0.35]
+rtab_times = [0.48, 0.50, 0.49, 0.47, 0.49, 0.50, 0.48, 0.49, 0.48, 0.49]
+print(f"GMapping Avg Processing Time: {np.mean(gmap_times):.2f} s")
+print(f"RTAB-Map Avg Processing Time: {np.mean(rtab_times):.2f} s")
+
+# Load YOLOv5 pretrained model
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s') 
+
+# Example: Paths to 10 test images
+test_images = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg',
+               'img6.jpg', 'img7.jpg', 'img8.jpg', 'img9.jpg', 'img10.jpg'] 
+precisions, recalls, f1_scores, maps = [], [], [], []
+ 
+for img in test_images:
+    results = model(img)
+    metrics = results.metrics  # Automatically contains precision, recall, mAP
+    precisions.append(metrics.get('precision', 0))
+    recalls.append(metrics.get('recall', 0))
+    f1_scores.append(metrics.get('f1', 0))
+    mAPs.append(metrics.get('mAP', 0))
+ 
+print(f"YOLO Precision: {np.mean(precisions):.2f}")
+print(f"YOLO Recall: {np.mean(recalls):.2f}")
+print(f"YOLO F1-Score: {np.mean(f1_scores):.2f}")
+print(f"YOLO mAP: {np.mean(mAPs):.2f}")
+
 
