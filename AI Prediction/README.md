@@ -20,3 +20,5 @@ The 3D meshes (in .off format) are converted into voxel grids by allowing the ne
 A Variational Autoencoder (VAE) model is trained to minimize the difference between the input object and it's reconstructed part.
 
 ### Step 03: Morphing
+The decoder generates 3D CAD shapes by interpolating between two points in the latent space through a visual transition.
+
