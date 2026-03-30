@@ -21,4 +21,16 @@ A Variational Autoencoder (VAE) model is trained to minimize the difference betw
 
 ### Step 03: Morphing
 The decoder generates 3D CAD shapes by interpolating between two points in the latent space through a visual transition.
+</p>
 
+## Output
+<p align="justify">
+The outcome shows that the VAE model captures the global structure of the CAD models. Though primary features are well-preserved, the fine-grained details appear slightly voxelated due to the compression inherent of the VAE model bottleneck. The results of morphing demonstrate a continuous latent space. While the transitions are not merely overlays, the VAE model generates hybrid structures that combine features from both source and target CAD models.
+</p>
+
+## Limitations
+<p align="justify">
+Despite the implementation, several limitations are faced from using the Google Colab T4 GPU, which has some constraints to generate 3D grid higher resolution. Complex 3D convolutions are also computationally expensive by leading to limit the longer training epochs and size of the batch used. VAE model sometimes faces blurred reconstruction, which might disappear or become disconnected in the output.
+</p>
+
+Source Code:
