@@ -11,13 +11,13 @@ The dataset of this work is taken from the <a href="https://modelnet.cs.princeto
 ## Project workflow
 The code of this project [![Open In Colab](https://colab.research.google.com/drive/1GciPX32je-ByT1K6bG9nM36BGGeoGIg3)](https://colab.research.google.com/drive/1GciPX32je-ByT1K6bG9nM36BGGeoGIg3)
 <p align="justify">
-The implementation is utilized to build a generative model, which is capable of learning latent space of 3D CAD models. This process includes:
+The implementation is utilized to build a generative model, which is capable of learning the latent space of 3D CAD models. This process includes:
 
 ### Step 01: Data Preprocessing
-The 3D meshes (in .off format) are converted into voxel grids by allowing the neural network to process spatial data. The "Encoder" compresses the 3D input into a low-dimensional latent vector and a "Decoder" attempts to reconstruct the original 3D shape from this vector.
+The 3D meshes (in .off format) are converted into voxel grids by allowing the neural network to process spatial data. The "Encoder" compresses the 3D input into a low-dimensional latent vector, and the "Decoder" attempts to reconstruct the original 3D shape from this vector.
 
 ### Step 02: Reconstruction
-A Variational Autoencoder (VAE) model is trained to minimize the difference between the input object and it's reconstructed part.
+A Variational Autoencoder (VAE) model is trained to minimize the difference between the input object and its reconstructed part.
 
 ### Step 03: Morphing
 The decoder generates 3D CAD shapes by interpolating between two points in the latent space through a visual transition.
@@ -25,12 +25,12 @@ The decoder generates 3D CAD shapes by interpolating between two points in the l
 
 ## Output
 <p align="justify">
-The outcome shows that the VAE model captures the global structure of the CAD models. Though primary features are well-preserved, the fine-grained details appear slightly voxelated due to the compression inherent of the VAE model bottleneck. The results of morphing demonstrate a continuous latent space. While the transitions are not merely overlays, the VAE model generates hybrid structures that combine features from both source and target CAD models.
+The outcome shows that the VAE model captures the global structure of the CAD models. Though primary features are well-preserved, the fine-grained details appear slightly voxelated due to the compression inherent in the VAE model bottleneck. The results of morphing demonstrate a continuous latent space. While the transitions are not merely overlays, the VAE model generates hybrid structures that combine features from both source and target CAD models.
 </p>
 
 ## Limitations
 <p align="justify">
-Despite the implementation, several limitations are faced from using the Google Colab T4 GPU, which has some constraints to generate 3D grid higher resolution. Complex 3D convolutions are also computationally expensive by leading to limit the longer training epochs and size of the batch used. VAE model sometimes faces blurred reconstruction, which might disappear or become disconnected in the output.
+Despite the implementation, several limitations are faced when using the Google Colab T4 GPU, which has some constraints to generate the 3D grid higher resolution. Complex 3D convolutions are also computationally expensive, leading to limit on the longer training epochs and size of the batch used. The VAE model sometimes faces blurred reconstruction, which might disappear or become disconnected in the output.
 </p>
 
 Source Code: <a href="https://github.com/IsaacGuan/3D-VAE">GitHub Code 1</a>.  <a href="https://github.com/marian42/shapegan">GitHub Code 2</a>.
