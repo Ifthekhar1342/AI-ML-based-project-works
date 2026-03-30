@@ -33,4 +33,4 @@ The outcome shows that the VAE model captures the global structure of the CAD mo
 Despite the implementation, several limitations are faced from using the Google Colab T4 GPU, which has some constraints to generate 3D grid higher resolution. Complex 3D convolutions are also computationally expensive by leading to limit the longer training epochs and size of the batch used. VAE model sometimes faces blurred reconstruction, which might disappear or become disconnected in the output.
 </p>
 
-Source Code:
+Source Code: <a href="https://github.com/IsaacGuan/3D-VAE">GitHub Code 1</a>.  <a href="https://github.com/marian42/shapegan">GitHub Code 2</a>.
