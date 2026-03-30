@@ -5,5 +5,5 @@ To reconstruct 3D CAD models from input data and interpolate between different 3
 
 ## Dataset
 <p align="justify">
-The dataset of this work is taken from the <a href="https://drive.google.com/drive/u/0/folders/1Oenec-8J2A5QJKMSCWkW_a3keiLYfkkL">ModelNet10</a>, which contains 10 categories of CAD models (i.e. chair, bed) along with .off files.
+The dataset of this work is taken from the <a href="https://modelnet.cs.princeton.edu/">ModelNet10</a>, which contains 10 categories of CAD models (i.e. chair, bed) along with .off mesh files.
 </p>
